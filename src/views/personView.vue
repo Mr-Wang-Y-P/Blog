@@ -129,7 +129,7 @@ import articleBox from '../myComponents/articleBox.vue'
     position: relative;
     margin: 0 auto;
     width: 100%;
-
+    overflow: auto;
     color: #252933;
 
     .personViewLeft {

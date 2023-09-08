@@ -1,31 +1,37 @@
 <template>
-    <div class="articleCard">
+    <div class="articleCard" v-for="(item,index) in showData" :key="item.id">
         <div class="cardLeft">
             <div class="Title">
-                一些bug遇到的坑!!!
+                {{ item.title }}
             </div>
             <div class="Description">
-                一些bug遇到的坑 一些bug遇到的坑 一些bug遇到的坑 一些bug遇到的坑 一些bug遇到的坑
+                {{ item.description }}
             </div>
             <div class="Information">
                 <div class="Information-left">
                     <div class="time">
-                        1月前
+                       {{ item.time }}
                     </div>
                     <el-divider direction="vertical" />
                     <div class="look">
-                        1.3k
+                        <el-icon>
+                            <View />
+                        </el-icon>
+                       {{ item.lookCount }}
                     </div>
                     <div class="love">
-                        9
+                        <clickLove @multiplyLove="multiplyLoveCount(index)" @addLove="addLoveCount(index)"  :loveCount="item.loveCount"></clickLove>
                     </div>
                     <div class="pingLun">
-                        1
+                        <el-icon>
+                            <ChatDotSquare />
+                        </el-icon>
+                        {{ item.pingLunCount }}
                     </div>
                 </div>
                 <div class="Information-right">
-                    <div class="informationBox">
-                        前端开发与css
+                    <div class="informationBox" v-for="inforBox in item.informationArr" :key="inforBox">
+                       {{ inforBox.information }}
                     </div>
                 </div>
 
@@ -33,28 +39,124 @@
 
         </div>
         <div class="cardImg">
-            <img src="https://gitee.com/unfortunately-there-is-no-if/img/raw/master/Image/dc671aba89249f8727cc06da6152f74d.png!mfit_w2048_h2048_jpg_webp" alt="">
+            <img :src="item.imgSrc"
+                alt="">
         </div>
     </div>
 </template>
 
 <script setup>
+import { ref } from 'vue';
+import clickLove from '@/myComponents/clickLove.vue'
+const showData =ref([{
+    id:1,
+    title:'一些bug遇到的坑!!!',
+    description:' 一些bug遇到的坑 一些bug遇到的坑 一些bug遇到的坑 一些bug遇到的坑 一些bug遇到的坑',
+    time:'1月前',
+    lookCount:'1.3k',
+    loveCount:18,
+    pingLunCount:1,
+    informationArr:[{
+        information:' 前端开发与css'
+    }],
+    imgSrc:'https://gitee.com/unfortunately-there-is-no-if/img/raw/master/Image/dc671aba89249f8727cc06da6152f74d.png!mfit_w2048_h2048_jpg_webp'
+},
+{
+    id:1,
+    title:'一些bug遇到的坑!!!',
+    description:' 一些bug遇到的坑 一些bug遇到的坑 一些bug遇到的坑 一些bug遇到的坑 一些bug遇到的坑',
+    time:'1月前',
+    lookCount:'1.3k',
+    loveCount:19,
+    pingLunCount:1,
+    informationArr:[{
+        information:' 前端开发与css'
+    }],
+    imgSrc:'https://gitee.com/unfortunately-there-is-no-if/img/raw/master/Image/dc671aba89249f8727cc06da6152f74d.png!mfit_w2048_h2048_jpg_webp'
+},
+{
+    id:1,
+    title:'一些bug遇到的坑!!!',
+    description:' 一些bug遇到的坑 一些bug遇到的坑 一些bug遇到的坑 一些bug遇到的坑 一些bug遇到的坑',
+    time:'1月前',
+    lookCount:'1.3k',
+    loveCount:20,
+    pingLunCount:1,
+    informationArr:[{
+        information:' 前端开发与css'
+    }],
+    imgSrc:'https://gitee.com/unfortunately-there-is-no-if/img/raw/master/Image/dc671aba89249f8727cc06da6152f74d.png!mfit_w2048_h2048_jpg_webp'
+},
+{
+    id:1,
+    title:'一些bug遇到的坑!!!',
+    description:' 一些bug遇到的坑 一些bug遇到的坑 一些bug遇到的坑 一些bug遇到的坑 一些bug遇到的坑',
+    time:'1月前',
+    lookCount:'1.3k',
+    loveCount:20,
+    pingLunCount:1,
+    informationArr:[{
+        information:' 前端开发与css'
+    }],
+    imgSrc:'https://gitee.com/unfortunately-there-is-no-if/img/raw/master/Image/dc671aba89249f8727cc06da6152f74d.png!mfit_w2048_h2048_jpg_webp'
+},
+{
+    id:1,
+    title:'一些bug遇到的坑!!!',
+    description:' 一些bug遇到的坑 一些bug遇到的坑 一些bug遇到的坑 一些bug遇到的坑 一些bug遇到的坑',
+    time:'1月前',
+    lookCount:'1.3k',
+    loveCount:20,
+    pingLunCount:1,
+    informationArr:[{
+        information:' 前端开发与css'
+    }],
+    imgSrc:'https://gitee.com/unfortunately-there-is-no-if/img/raw/master/Image/dc671aba89249f8727cc06da6152f74d.png!mfit_w2048_h2048_jpg_webp'
+},{
+    id:1,
+    title:'一些bug遇到的坑!!!',
+    description:' 一些bug遇到的坑 一些bug遇到的坑 一些bug遇到的坑 一些bug遇到的坑 一些bug遇到的坑',
+    time:'1月前',
+    lookCount:'1.3k',
+    loveCount:20,
+    pingLunCount:1,
+    informationArr:[{
+        information:' 前端开发与css'
+    },
+{
+    information:'JavaScript'
+}],
+    imgSrc:'https://gitee.com/unfortunately-there-is-no-if/img/raw/master/Image/dc671aba89249f8727cc06da6152f74d.png!mfit_w2048_h2048_jpg_webp'
+}])
 
+const addLoveCount =(index)=>{
+    // console.log('点赞+1');
+    showData.value[index].loveCount =showData.value[index].loveCount  + 1
+}
+const multiplyLoveCount =(index)=>{
+    // console.log('点赞-1');
+    showData.value[index].loveCount =showData.value[index].loveCount  - 1
+}
 </script>
 
 <style lang="less" scoped>
 .articleCard {
-    margin-top: 20px;
     background-color: #fff;
     height: 120px;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #e4e6eb;
+
     .cardLeft {
         width: calc(100% - 90px);
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        >div {
+            padding: 5px;
+            margin-left: 15px;
+        }
 
         .Title {
             font-weight: 600;
@@ -84,13 +186,26 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            .Information-left{
+
+            .Information-left {
                 display: flex;
+                align-items: center;
+
+                .time,
+                .love,
+                .look,
+                .pingLun {
+                    width: 80px;
+                    display: flex;
+                    align-items: center;
+                }
             }
+
             .Information-right {
                 display: flex;
 
                 .informationBox {
+                    font-size: 14px;
                     overflow: hidden;
                     text-overflow: ellipsis;
                     background-color: #f2f3f5;
@@ -101,6 +216,7 @@
                     min-height: 18px;
                     line-height: 18px;
                     white-space: nowrap;
+                    margin: 5px;
                 }
             }
         }
@@ -111,9 +227,13 @@
         margin: 10px;
         width: 100px;
         margin-left: 20px;
-        img{
+
+        img {
             width: 100%;
             height: 100%;
         }
     }
-}</style>
+}
+
+
+</style>
