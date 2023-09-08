@@ -1,0 +1,13 @@
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* 鼠标标签文字不显示 */
+a::after {  
+  content: "";  
+  display: block;  
+  width: 100%;  
+  height: 0;  
+  visibility: hidden;  
+}

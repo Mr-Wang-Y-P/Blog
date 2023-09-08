@@ -1,0 +1,147 @@
+/*动画*/
+@keyframes blink {
+
+    from,
+    to {
+        border-color: transparent;
+        /* 透明边框颜色 */
+    }
+
+    50% {
+        border-color: white;
+        /* 白色边框颜色 */
+    }
+}
+
+/* 定义向右滑动的动画 */
+@keyframes slideRight {
+    0% {
+        transform: translateX(-100px);
+    }
+
+    100% {
+        transform: translateX(50px);
+        opacity: 1;
+    }
+}
+
+/* 定义向左滑动的动画 */
+@keyframes slideLeft {
+    0% {
+        transform: translateX(100px);
+    }
+
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+/* 定义向上滑动的动画 */
+@keyframes slideTop {
+    0% {
+        transform: translateY(100px);
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+/* 定义向下滑动的动画 */
+@keyframes slideBottom {
+    0% {
+        transform: translateY(-100px);
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+/* 定义放大的动画 */
+@keyframes zoomIn {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* 定义图片浮动的动画 */
+@keyframes floatImg {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-36px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+ /* 箭头动画 */
+ @keyframes bounce-inSS {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+  }
+
+  @keyframes slideBodyTop {
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(-100vh);
+        opacity: 1;
+    }
+}
+@keyframes slideBodyBottom {
+    0% {
+        transform: translateY(-100vh);
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+/* 定义向右滑动的动画 */
+@keyframes cardRight {
+    0% {
+        transform: translateX(0px);
+        display: block;
+    }
+
+    100% {
+        transform: translateX(400px);
+        display: none;
+    }
+}
+
+/* 定义向左滑动的动画 */
+@keyframes cardLeft {
+    0% {
+        transform: translateX(400px);
+        display: none;
+    }
+
+    100% {
+        transform: translateX(0px);
+        display: block;
+    }
+}
